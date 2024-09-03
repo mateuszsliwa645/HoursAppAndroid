@@ -31,8 +31,6 @@
         android:importantForAutofill="no"
  />
 
-
-
     <EditText
         android:id="@+id/idPassword"
         android:layout_width="match_parent"
@@ -46,11 +44,21 @@
         android:inputType="textPassword" />
 
 
+    <CheckBox
+        android:id="@+id/saveLoginCheckBox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/idPassword"
+        android:text="Zapisać dane logowania?"
+        android:layout_marginLeft="6dp"/>
+
+
     <Button
         android:id="@+id/idBtnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idPassword"
+        android:layout_below="@id/saveLoginCheckBox"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"

@@ -1,9 +1,13 @@
 package com.example.hoursappandroid
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -21,7 +25,13 @@ class MainActivity : ComponentActivity() {
     private lateinit var PassTextEdit: EditText
     private lateinit var LoginButton: Button
     private lateinit var requestQueue: RequestQueue
+    private lateinit var rememberMeCheckBox : CheckBox
+    private lateinit var sharedPreferences: SharedPreferences
     private val TAG = "MainActivity"
+    private val PREF_NAME = "LoginPrefs"
+    private val PREF_USERNAME = "username"
+    private val PREF_PASSWORD = "password"
+    private val PREF_REMEMBER = "rememberMe"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +43,15 @@ class MainActivity : ComponentActivity() {
         val PassTextExit = findViewById<EditText>(R.id.idPassword)
         val LoginButton = findViewById<Button>(R.id.idBtnLogin)
         requestQueue = Volley.newRequestQueue(this)
+        rememberMeCheckBox = findViewById(R.id.saveLoginCheckBox)
+
+        sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE)
+
+        if(sharedPreferences.getBoolean(PREF_REMEMBER, false)) {
+            LoginTextEdit.setText(sharedPreferences.getString(PREF_USERNAME, ""))
+            PassTextExit.setText(sharedPreferences.getString(PREF_PASSWORD,""))
+            rememberMeCheckBox.isChecked = true
+        }
 
 
         LoginButton.setOnClickListener {
@@ -57,6 +76,18 @@ class MainActivity : ComponentActivity() {
                     val success = jsonObject.getBoolean("success")
                     if(success){
                         Log.d(TAG, "Login successful")
+
+                        val editor = sharedPreferences.edit()
+                        if(rememberMeCheckBox.isChecked) {
+                            editor.putString(PREF_USERNAME, username)
+                            editor.putString(PREF_PASSWORD, password)
+                            editor.putBoolean(PREF_REMEMBER, true)
+                            Log.d("SharedPreferences", "Dane zapisane: " + sharedPreferences.getString(PREF_USERNAME, ""))
+                        } else {
+                            editor.clear()
+                        }
+                        editor.apply()
+
                         val intent = Intent(this, HomePageActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -82,6 +113,9 @@ class MainActivity : ComponentActivity() {
         requestQueue.add(stringRequest)
     }
 
-    }
+
+
+
+}
 
 
