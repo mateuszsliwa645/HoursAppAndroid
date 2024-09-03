@@ -1,20 +1,29 @@
 package com.example.hoursappandroid
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.hoursappandroid.ui.theme.HoursAppAndroidTheme
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONException
+import org.json.JSONObject
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var LoginTextEdit: EditText
+    private lateinit var PassTextEdit: EditText
+    private lateinit var LoginButton: Button
+    private lateinit var requestQueue: RequestQueue
+    private val TAG = "MainActivity"
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -23,8 +32,56 @@ class MainActivity : ComponentActivity() {
         val LoginTextEdit = findViewById<EditText>(R.id.idLogin)
         val PassTextExit = findViewById<EditText>(R.id.idPassword)
         val LoginButton = findViewById<Button>(R.id.idBtnLogin)
-            
+        requestQueue = Volley.newRequestQueue(this)
+
+
+        LoginButton.setOnClickListener {
+            val user_login = LoginTextEdit.text.toString().trim()
+            val user_pass = PassTextExit.text.toString().trim()
+
+            if(user_login.isNotEmpty() && user_pass.isNotEmpty()){
+                loginUser(user_login, user_pass)
+            }else{
+                Toast.makeText(this, "Podaj login i hasło!", Toast.LENGTH_SHORT).show()
+            }
         }
+        }
+    private fun loginUser(username: String, password: String){
+        val url ="https://hosting2480966.online.pro/installatorapp/HoursApp/login.php"
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, url,
+            Response.Listener { response ->
+                Log.d(TAG, "Response: $response")
+                try{
+                    val jsonObject = JSONObject(response)
+                    val success = jsonObject.getBoolean("success")
+                    if(success){
+                        Log.d(TAG, "Login successful")
+                        val intent = Intent(this, HomePageActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }catch (e: JSONException) {
+                    e.printStackTrace()
+                    Toast.makeText(this, "Login error: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+                
+            },
+            Response.ErrorListener { error ->
+                Log.e(TAG, "Error: ${error.message}")
+                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params["username"] = username
+                params["password"] = password
+                return params
+            }
+        }
+        requestQueue.add(stringRequest)
+    }
+
     }
 
 
