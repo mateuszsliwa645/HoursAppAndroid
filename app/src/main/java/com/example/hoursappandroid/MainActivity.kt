@@ -88,9 +88,14 @@ class MainActivity : ComponentActivity() {
                         }
                         editor.apply()
 
+                        val userId = jsonObject.getInt("user_id").toString()
+
                         val intent = Intent(this, HomePageActivity::class.java)
+                        intent.putExtra("user_id", userId)
                         startActivity(intent)
                         finish()
+                    } else {
+                        Toast.makeText(this, "Złe hasło lub login!",Toast.LENGTH_SHORT).show()
                     }
                 }catch (e: JSONException) {
                     e.printStackTrace()

@@ -1,18 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+
+
+    <Button
+        android:id="@+id/logOutBtn"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="TEST HOME PAGE"
+        android:gravity="center"
+        android:text="Wyloguj"
+        android:textColor="@color/white"
         android:layout_gravity="center"
-        android:textSize="45dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_button"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_below="@id/logOutBtn"
+        android:layout_marginTop="-13dp"
+        />
+
+    <TextView
+        android:id="@+id/officeTextView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="↓    Biuro   ↓"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:background="@drawable/border"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/logOutBtn"
+        />
+    <Button
+        android:id="@+id/enterOfficeBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Wejście"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_button"
+        android:layout_below="@id/officeTextView"
+        />
+    <Button
+        android:id="@+id/leaveOfficeBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Wyjście"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_button"
+        android:layout_below="@id/enterOfficeBtn"
+        />
+
+    <TextView
+        android:id="@+id/remoteTextView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="↓    Zdalna   ↓"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:background="@drawable/border"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/leaveOfficeBtn"
+        />
+
+    <Button
+        android:id="@+id/enterRemoteBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Wejście"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_button"
+        android:layout_below="@id/remoteTextView"
+        />
+
+    <Button
+        android:id="@+id/leaveRemoteBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Wyjście"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_button"
+        android:layout_below="@id/enterRemoteBtn"
+        />
 
 
 
 
 
-</LinearLayout>
+</RelativeLayout>
