@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:id="@+id/object_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -35,7 +36,7 @@
         android:id="@+id/officeTextView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="↓    Biuro   ↓"
+        android:text="↓    Obiekt   ↓"
         android:gravity="center_horizontal"
         android:textSize="25sp"
         android:textColor="@color/black"
@@ -43,6 +44,18 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/firstLine"
         android:layout_marginTop="20dp"
+        />
+
+
+    <EditText
+        android:id="@+id/ObjectEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/officeTextView"
+        android:hint="Nazwa obiektu"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+
         />
     <Button
         android:id="@+id/enterObjectBtn"
@@ -57,7 +70,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:background="@drawable/border_button"
-        android:layout_below="@id/officeTextView"
+        android:layout_below="@id/ObjectEditText"
         />
     <Button
         android:id="@+id/leaveObjectBtn"
@@ -78,7 +91,7 @@
         android:id="@+id/remoteTextView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="↓    Zdalna   ↓"
+        android:text="↓    Droga   ↓"
         android:gravity="center_horizontal"
         android:textSize="25sp"
         android:textColor="@color/black"
@@ -87,12 +100,21 @@
         android:layout_below="@+id/leaveObjectBtn"
         />
 
+    <EditText
+        android:id="@+id/ObjectEditText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remoteTextView"
+        android:hint="Nazwa obiektu"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"/>
+
     <Button
         android:id="@+id/startRoadBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Wejście"
+        android:text="Wyjazd"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:textColor="@color/white"
@@ -100,7 +122,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:background="@drawable/border_button"
-        android:layout_below="@id/remoteTextView"
+        android:layout_below="@id/ObjectEditText2"
         />
 
     <Button
@@ -108,7 +130,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Wyjście"
+        android:text="Przyjazd"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_gravity="center"
@@ -124,21 +146,22 @@
         android:layout_height="2dp"
         android:background="@color/black"
         android:layout_below="@id/endRoadBtn"
+        android:layout_marginTop="-10dp"
         />
 
     <Button
-        android:id="@+id/objectsPageBtn"
+        android:id="@+id/officePageBtn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Obiekty"
+        android:text="Biuro"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/border_button"
-        android:layout_below="@id/secondLine"
+        android:layout_below="@id/endRoadBtn"
         />
 
 
@@ -146,3 +169,4 @@
 
 
 </RelativeLayout>
+
