@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+
+
 }
 
 android {
@@ -39,6 +42,9 @@ android {
     buildFeatures {
         compose = true
     }
+    viewBinding{
+        enable = true
+    }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
@@ -50,7 +56,6 @@ android {
 }
 
 dependencies {
-    implementation("com.android.support:percent:23.3.0")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.activity:activity-compose:1.9.1")
@@ -58,8 +63,10 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.compose.material3:material3")
     implementation("com.android.volley:volley:1.2.1")
+    implementation ("com.google.code.gson:gson:2.11.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
