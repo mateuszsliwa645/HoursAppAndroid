@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.android.support:percent:23.3.0")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.activity:activity-compose:1.9.1")

@@ -20,6 +20,8 @@
         <activity
             android:name=".ObjectsActivity"
             />
+        <activity android:name=".HistoryActivity"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true"

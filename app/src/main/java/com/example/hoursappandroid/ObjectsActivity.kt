@@ -1,5 +1,6 @@
 package com.example.hoursappandroid
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -34,6 +35,8 @@ class ObjectsActivity : ComponentActivity() {
     lateinit var objectRoadText : EditText
     lateinit var TAG : String
     lateinit var objectName : String
+    lateinit var historyBtn : Button
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_objects)
@@ -46,6 +49,7 @@ class ObjectsActivity : ComponentActivity() {
         officePageBtn = findViewById(R.id.officePageBtn)
         objectNameText = findViewById(R.id.ObjectEditText)
         objectRoadText = findViewById(R.id.ObjectEditText2)
+        historyBtn = findViewById(R.id.historyBtn)
         TAG = "My Objects Activity"
 
         val userId = intent.getStringExtra("user_id")
@@ -89,6 +93,14 @@ class ObjectsActivity : ComponentActivity() {
                 Log.d(TAG,objectRoadText.text.toString())
                 end_road(it)
             }
+        }
+        historyBtn.setOnClickListener {
+            intent = Intent(this, HistoryActivity::class.java)
+            intent.putExtra(
+                "user_id", userId
+            )
+            startActivity(intent)
+            finish()
         }
 
         val mainLayout = findViewById<RelativeLayout>(R.id.object_layout)

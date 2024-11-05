@@ -19,6 +19,7 @@ class HomePageActivity : ComponentActivity(){
     lateinit var enterRemoteBtn : Button
     lateinit var leaveRemoteBtn : Button
     lateinit var objectsPageBtn : Button
+    lateinit var historyBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,7 @@ class HomePageActivity : ComponentActivity(){
         enterRemoteBtn = findViewById(R.id.startRoadBtn)
         leaveRemoteBtn = findViewById(R.id.endRoadBtn)
         objectsPageBtn = findViewById(R.id.objectsPageBtn)
+        historyBtn = findViewById(R.id.historyBtn)
 
 
 
@@ -68,6 +70,15 @@ class HomePageActivity : ComponentActivity(){
         objectsPageBtn.setOnClickListener {
             intent = Intent(this, ObjectsActivity::class.java)
             intent.putExtra("user_id", userId)
+            startActivity(intent)
+            finish()
+        }
+
+        historyBtn.setOnClickListener {
+            intent = Intent(this, HistoryActivity::class.java)
+            intent.putExtra(
+                "user_id", userId
+            )
             startActivity(intent)
             finish()
         }

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/logOutBtn"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_button"
+        android:text="Wyloguj"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+    <Button
+        android:id="@+id/officePageBtn"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Biuro"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@id/logOutBtn"
+        android:background="@drawable/border_button"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/objectsPageBtn"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:text="Obiekty"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@id/officePageBtn"
+        android:background="@drawable/border_button"/>
+
+
+    <Button
+        android:id="@+id/officeHoursBtn"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logOutBtn"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="51dp"
+        android:layout_toStartOf="@+id/objectsHoursBtn"
+        android:background="@drawable/border_button"
+        android:text="Godziny Biuro"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/objectsHoursBtn"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logOutBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/border_button"
+        android:text="Godziny Obiekty"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstLine"
+        android:text="Wejście/Wyjście"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstLine"
+        android:text="Godzina"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="137dp"
+        android:gravity="center"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstLine"
+        android:text="Dzień"
+        android:layout_marginStart="274dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"/>
+    <View
+        android:id="@+id/firstLine"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_below="@id/objectsHoursBtn"
+        android:layout_marginTop="20dp"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_below="@id/firstLine"
+        android:layout_marginTop="40dp"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="500dp"
+        android:layout_below="@id/firstLine"
+        android:layout_marginStart="137dp"
+        android:background="@color/black"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="500dp"
+        android:layout_below="@id/firstLine"
+        android:layout_marginStart="274dp"
+        android:background="@color/black"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@id/firstLine"
+        android:background="@color/black"
+        android:layout_marginTop="500dp"/>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
