@@ -18,6 +18,9 @@
             android:name=".HomePageActivity"
             />
         <activity
+            android:name=".ObjectsHistoryActivity"
+            />
+        <activity
             android:name=".ObjectsActivity"
             />
         <activity android:name=".HistoryActivity"

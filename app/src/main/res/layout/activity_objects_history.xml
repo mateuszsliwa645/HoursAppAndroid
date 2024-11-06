@@ -59,7 +59,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:layout_width="137dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/firstLine"
         android:text="Wejście/Wyjście"
@@ -68,22 +68,29 @@
         android:gravity="center"/>
 
     <TextView
-        android:layout_width="137dp"
+        android:layout_width="102dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/firstLine"
         android:text="Godzina"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="137dp"
+        android:layout_marginStart="105dp"
         android:gravity="center"
         android:textColor="@color/black"/>
-
-
     <TextView
-        android:layout_width="137dp"
+        android:layout_width="102dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/firstLine"
         android:text="Dzień"
-        android:layout_marginStart="274dp"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstLine"
+        android:text="Obiekt"
+        android:layout_marginStart="309dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="@color/black"/>
@@ -114,14 +121,20 @@
         android:layout_width="2dp"
         android:layout_height="500dp"
         android:layout_below="@id/firstLine"
-        android:layout_marginStart="137dp"
+        android:layout_marginStart="105dp"
         android:background="@color/black"/>
 
     <View
         android:layout_width="2dp"
         android:layout_height="500dp"
         android:layout_below="@id/firstLine"
-        android:layout_marginStart="274dp"
+        android:layout_marginStart="207dp"
+        android:background="@color/black"/>
+    <View
+        android:layout_width="2dp"
+        android:layout_height="500dp"
+        android:layout_below="@id/firstLine"
+        android:layout_marginStart="309dp"
         android:background="@color/black"/>
 
     <View
